@@ -1,0 +1,91 @@
+body{
+    background-color:lightgreen;
+}
+
+.questions{
+    background-color: $off-white;
+    border-left: 5px solid $blue;
+    width: 80%;
+    margin: $large auto 0 auto;
+    padding: $small-medium $medium;
+
+    .lifeline-container{
+        display: flex;
+        justify-content: space-between;
+
+
+    }
+
+    .lifeline{
+        position: relative;
+        top: -3px;
+
+    }
+    h4{
+        font-size: 1.2rem;
+        margin-bottom: $large;
+        text-align: center;
+        line-height: 1.5rem;
+    }
+
+    .options{
+        display: inline-block;
+        width: 50%;
+        
+    }
+
+
+    .option{
+        background-color: $blue;
+        border-radius: $button-radius;
+        color: $white;
+        cursor: pointer;
+        margin: $medium auto;
+        padding: $normal;
+        transition: 0.3s linear all;
+        text-align: center;
+        width: 90%;
+    }
+
+    .option:hover{
+        background-color: darken($color: $blue, $amount: 20%);
+    }
+      .btn-container{
+          display: flex;
+          justify-content: flex-start;
+          margin: 0 auto $small-medium auto;
+          padding: $medium;
+          width: 80%;
+      }
+
+      .btn-container button{
+          border: none;
+          cursor: pointer;
+          color: $white;
+          font-family: $montserrat;
+          margin-right: $medium;
+          padding: $xtra-small $small-medium;
+      }
+
+      .btn-container button:first-child{
+            background-color: darken($color: $blue, $amount: 10%);
+            box-shadow: $shadow;
+            transition: 0.2s linear all;
+
+      }
+
+      .btn-container button:first-child:hover{
+          background-color: darken($color: $blue, $amount: 10%);
+      }
+
+      .btn-container button:nth-child(2){
+        background-color: $green;
+        box-shadow: $shadow;
+        transition: 0.2s linear all; 
+    }
+    
+        .btn-container button:nth-child(2):hover{
+            background-color: darken($color: $green, $amount: 10%);
+        }
+
+}

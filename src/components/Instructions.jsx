@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {LInk} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import answer from '../assets/img/answer.png';
 import fifty from '../assets/img/fiftyFifty.PNG';
@@ -31,7 +31,7 @@ const Instructions = () => {
                     <li>For Each quiz, you can have 2 lifelines namely: 
                         <ul className="sublist">
                             <li>2 50-50 chances</li>
-                            <li>hints lifeline</li>
+                            <li>5 Hints lifeline</li>
                         </ul>
 
                     </li> 
@@ -42,14 +42,19 @@ const Instructions = () => {
                     </li>
                     <li>Selecting the icon  
                     <span className="mdi mdi-lightbulb-on mdi-24px lifeline icon"></span>. 
-                        Will remove on wrong answer, one at a time. You can use this option
+                        Will remove one wrong answer, one at a time. You can use this option
                          as many times
                         on a question
                         <img src={hints} alt="demo hints options"/>
                      </li>
-                     <li>You can quit the game at any point by clicking on the quit button</li>
-
+                     <li>You can quit the game at any point by clicking on the quit button, after which your scores will be revealed</li>
+                    <li> The timer starts as soon as the game loads</li>
+                    <li>if you are ready to proceed, click the let's do this icon</li>
                 </ul>
+                <div>
+                    <span className="left"><Link to="/">No, take me back</Link></span>
+                    <span className="right"><Link to="/play/quiz">Let's do this</Link></span>
+                    </div>
         </div>
         </Fragment>
      );
