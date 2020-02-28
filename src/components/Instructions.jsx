@@ -21,6 +21,7 @@ const Instructions = () => {
                     <li> The quiz will play out for exactly 15minutes and ends as soon as your time lapses</li>
                     <li>In Each quiz, there are 15 questions generated from the server.</li>
                     <li>Every question has 4 options to choose from.
+                        <br/><br/>
                         <img  src={options} alt="options"/>
                     </li>
                         <br/><br/>
@@ -38,13 +39,14 @@ const Instructions = () => {
                     <li>Select the Fifty-Fifty chance by clicking on the icon
                         <span className="mdi mdi-set-center mdi-24px lifeline icon"></span>. 
                          This leaves you with one right answer and one wrong answer
+                         <br/><br/>
                         <img src={fifty} alt="demo fifty fifty options"/>
                     </li>
                     <li>Selecting the icon  
                     <span className="mdi mdi-lightbulb-on mdi-24px lifeline icon"></span>. 
                         Will remove one wrong answer, one at a time. You can use this option
                          as many times
-                        on a question
+                        on a question <br/><br/>
                         <img src={hints} alt="demo hints options"/>
                      </li>
                      <li>You can quit the game at any point by clicking on the quit button, after which your scores will be revealed</li>

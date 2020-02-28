@@ -88,4 +88,15 @@ body{
             background-color: darken($color: $green, $amount: 10%);
         }
 
+        .btn-container button:last-child{
+            background-color: $red;
+            box-shadow: $shadow;
+            transition: 0.2s linear all;
+
+      }
+
+      .btn-container button:last-child:hover{
+        background-color: darken($color: $red, $amount: 10%);
+    }
+
 }
