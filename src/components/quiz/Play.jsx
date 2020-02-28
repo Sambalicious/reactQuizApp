@@ -66,6 +66,14 @@ class Play extends Component {
          
      };
 
+     handleButtonClick = () => {
+         this.playButtonSound();
+     };
+     
+     playButtonSound =()=>{
+         document.getElementById('button-sound').play()
+     }
+
      handleCorrectAnswer = () => {
          M.toast({
              html: 'Correct, You are a genius!',
@@ -115,7 +123,7 @@ class Play extends Component {
                         <p><span className="mdi mdi-lightbulb-on mdi-24px lifeline-icon"></span>5<span className="lifeline"></span></p>
                     </div>
                         <div className="timer-container">
-                            <p><span className="left">1 0f 15</span>
+                            <p><span className="left">{this.state.currentQuestionIndex} Of {this.state.questions.length}</span>
                          <span className="right"> 2:15 <span className="mdi mdi-clock-outline mdi-24px"> </span></span>
                             </p>
                         </div>
@@ -131,9 +139,9 @@ class Play extends Component {
                         </div>
 
                         <div className="btn-container">
-                            <button>Previous</button>
-                            <button>Next</button>
-                            <button> Quit</button>
+                            <button onClick={this.handleButtonClick}>Previous</button>
+                            <button onClick={this.handleButtonClick}>Next</button>
+                            <button onClick={this.handleButtonClick}> Quit</button>
                         </div>
                 </div>
             </Fragment>
