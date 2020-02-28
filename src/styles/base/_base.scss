@@ -6,3 +6,15 @@
 body{
     font-family: 'Montserrat';
 }
+
+
+.toast-valid{
+    background-color:  #4caf50;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.toast-invalid{
+    background-color: #f44336;
+    border-radius: 5px;
+}
