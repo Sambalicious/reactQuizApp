@@ -66,8 +66,43 @@ class Play extends Component {
          
      };
 
-     handleButtonClick = () => {
+     handleNextButton = () => {
          this.playButtonSound();
+         if (this.state.nextQuestion !== undefined){
+              this.setState(prevState => ({
+                  currentQuestionIndex: prevState.currentQuestionIndex + 1
+              }), () => {
+                  this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+              });
+         }
+     }
+
+     handlePreviousButton = () => {
+         this.playButtonSound();
+         if (this.state.previousQuestion !== undefined){
+             this.setState(prevState => ({
+                 currentQuestionIndex: prevState.currentQuestionIndex - 1
+                  
+             }), () => {this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+                
+             })
+         }
+     }
+
+     handleButtonClick = (e) => {
+         this.playButtonSound();
+
+            switch (e.target.id) {
+                case 'previousBtn':
+                    this.handlePreviousButton();                 
+                    break;
+                case 'nextBtn': 
+                this.handleNextButton();
+                break;
+                
+                default:
+                    break;
+            }
      };
      
      playButtonSound =()=>{
@@ -99,7 +134,7 @@ class Play extends Component {
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
             numberofAnsweredQuestions: prevState.numberofAnsweredQuestions + 1
         }), ()=> {this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.previousQuestion, this.state.nextQuestion)})
-    }
+    };
     render() { 
 
         const { currentQuestion} = this.state
@@ -124,7 +159,8 @@ class Play extends Component {
                     </div>
                         <div className="timer-container">
                             <p><span className="left">{this.state.currentQuestionIndex} Of {this.state.questions.length}</span>
-                         <span className="right"> 2:15 <span className="mdi mdi-clock-outline mdi-24px"> </span></span>
+                         <span className="right">2:15
+                        <span className="mdi mdi-clock-outline mdi-24px"> </span></span>
                             </p>
                         </div>
 
@@ -139,9 +175,9 @@ class Play extends Component {
                         </div>
 
                         <div className="btn-container">
-                            <button onClick={this.handleButtonClick}>Previous</button>
-                            <button onClick={this.handleButtonClick}>Next</button>
-                            <button onClick={this.handleButtonClick}> Quit</button>
+                            <button id="previousBtn" onClick={this.handleButtonClick}>Previous</button>
+                            <button id="nextBtn" onClick={this.handleButtonClick}>Next</button>
+                            <button id='quitBtn' onClick={this.handleButtonClick}> Quit</button>
                         </div>
                 </div>
             </Fragment>
