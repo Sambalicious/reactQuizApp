@@ -25,13 +25,21 @@ class Play extends Component {
         fiftyFifty: 2,
         usedFiftyFifty:false,
         time:{}, 
-        previousRandomNumbers: []
+        previousRandomNumbers: [],
+        nextBtnDisabled:false,
+        previousBtnDisabled: true,
 
-     }
+        
+
+     };
+
+     interval = null;
+    
 
      componentDidMount() {
          const { questions, currentQuestion, nextQuestion, previousQuestion} =this.state
          this.displayQuestions(questions, currentQuestion, previousQuestion, nextQuestion );
+         this.startTimer();
      }
      
 
@@ -47,6 +55,7 @@ class Play extends Component {
                 currentQuestion,nextQuestion,previousQuestion,answer, previousRandomNumbers :[]
             }, () => {
                 this.showOptions();
+                this.handledDisabledBtn();
             });
         }
      }
@@ -187,7 +196,7 @@ class Play extends Component {
 
             options.forEach((option, index) => {
                 if(option.innerHTML.toLowerCase() === this.state.answer.toLowerCase()){
-                    indexOfAnswer = index
+                    indexOfAnswer = index;
                 }
             });
 
@@ -197,7 +206,7 @@ class Play extends Component {
                 const randomNumber = Math.round(Math.random() * 3);
                 if(randomNumber !== indexOfAnswer){
                     if(randomNumbers.length < 2 &&!randomNumbers.includes(randomNumber)
-                     && !randomNumbers.includes(indexOfAnswer));
+                     && !randomNumbers.includes(indexOfAnswer)){;
                      randomNumbers.push(randomNumber);
                      count++;
                 }else{
@@ -206,6 +215,7 @@ class Play extends Component {
                         if(!randomNumbers.includes(newRandomNumber) && !randomNumbers.includes(indexOfAnswer)){
                             randomNumbers.push(newRandomNumber);
                             count++;
+              
                             break;
                         }
                     }
@@ -213,7 +223,7 @@ class Play extends Component {
                 }
 
             }
-            while (count < 2);
+        }while (count < 2);
 
             options.forEach((option, index)=>{
                 if(randomNumbers.includes(index)){
@@ -227,11 +237,67 @@ class Play extends Component {
 
         }
     };
+    startTimer = () => {
+        const countDownTime = Date.now() + 300000;
+        this.interval =setInterval(() => {
+                const now = new Date();
+                const distance = countDownTime - now;
 
+                const minutes = Math.floor((distance % (1000 * 60 * 60))/ (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60 ))/ (1000 ));
+
+                if(distance < 0){
+                    clearInterval(this.interval);
+                    this.setState({
+                        time: {
+                            minutes: 0,
+                        seconds: 0
+                        } 
+
+
+                    }, ()=> {
+                        alert('Time is up');
+                        this.props.history.push('/');
+                    });
+                }
+                else{
+                    this.setState({
+                        time: {
+                            minutes,seconds
+                        }
+                    })
+                }
+        }, 1000);
+
+    };
+
+    handledDisabledBtn= () => {
+        if(this.state.previousQuestion === undefined || this.state.currentQuestion === 0){
+
+            this.setState({
+                previousBtnDisabled: true
+            });
+        }else{
+            this.setState({
+                previousBtnDisabled: false
+            });
+        }
+
+        if(this.state.nextQuestion === undefined || this.state.currentQuestion + 1  ===this.state.questions.length ){
+
+            this.setState({
+                nextBtnDisabled: true
+            });
+        }else{
+            this.setState({
+                nextBtnDisabled: false
+            });
+        }
+    }
 
     render() { 
 
-        const { currentQuestion} = this.state
+        const { currentQuestion,time} = this.state
         
         return ( 
             <Fragment>
@@ -252,9 +318,9 @@ class Play extends Component {
                         <p><span onClick={this.handleHints} className="mdi mdi-lightbulb-on mdi-24px lifeline-icon"></span> {this.state.hints} <span  className="lifeline"></span></p>
                     </div>
                         <div className="timer-container">
-                            <p><span className="left">{this.state.currentQuestionIndex} Of {this.state.questions.length}</span>
-                         <span className="right">2:15
-                        <span className="mdi mdi-clock-outline mdi-24px"> </span></span>
+                            <p><span className="left">{this.state.currentQuestionIndex + 1} Of {this.state.questions.length}</span>
+                         <span className="right">{time.minutes}:{time.seconds}
+                        <span className="mdi mdi-clock-outline mdi-24px clock"> </span></span>
                             </p>
                         </div>
 
@@ -270,7 +336,7 @@ class Play extends Component {
 
                         <div className="btn-container">
                             <button id="previousBtn" onClick={this.handleButtonClick}>Previous</button>
-                            <button id="nextBtn" onClick={this.handleButtonClick}>Next</button>
+                            <button id="nextBtn"  onClick={this.handleButtonClick}>Next</button>
                             <button id='quitBtn' onClick={this.handleButtonClick}> Quit</button>
                         </div>
                 </div>

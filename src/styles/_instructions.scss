@@ -34,6 +34,18 @@
     }
 }
 
+a{
+    padding: 20px;
+    border-radius: 5px;
+    color:$off-white;
+    background-color: black;
+}
+
+.edited{
+    margin-top: 40px;
+    
+}
+
 @media screen and (max-width: 768px){
     .instructions img{
         width: 100% !important;

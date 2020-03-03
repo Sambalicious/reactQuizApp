@@ -51,12 +51,14 @@ const Instructions = () => {
                      </li>
                      <li>You can quit the game at any point by clicking on the quit button, after which your scores will be revealed</li>
                     <li> The timer starts as soon as the game loads</li>
-                    <li>if you are ready to proceed, click the let's do this icon</li>
+                    <li>if you are ready to proceed, click the proceed to question button</li>
                 </ul>
-                <div>
+                <div className="edited">
                     <span className="left"><Link to="/">No, take me back</Link></span>
-                    <span className="right"><Link to="/play/quiz">Let's do this</Link></span>
+                    <span className="right"><Link to="/play/quiz">Proceed to Questions</Link></span>
                     </div>
+
+                    <span className="mdi mdi-copywrite">developed by Samuel Ayegbusi</span>
         </div>
         </Fragment>
      );

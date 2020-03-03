@@ -18,3 +18,11 @@ body{
     background-color: #f44336;
     border-radius: 5px;
 }
+
+.disabled{
+    pointer-events: none !important
+    ;
+    box-shadow: none !important;
+    background-color: #ccc !important;
+    opacity: 0.9;
+}
