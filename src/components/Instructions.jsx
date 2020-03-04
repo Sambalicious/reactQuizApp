@@ -58,7 +58,7 @@ const Instructions = () => {
                     <span className="right"><Link to="/play/quiz">Proceed to Questions</Link></span>
                     </div>
 
-                    <span className="mdi mdi-copywrite">developed by Samuel Ayegbusi</span>
+                    <span className="mdi-copywrite">developed by Samuel Ayegbusi</span>
         </div>
         </Fragment>
      );

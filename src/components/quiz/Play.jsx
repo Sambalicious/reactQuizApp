@@ -6,6 +6,7 @@ import isEmpty from '../../is-empty';
 import correctSound from '../../assets/audio/correct-answer.mp3';
 import wrongSound from '../../assets/audio/wrong-answer.mp3';
 import buttonSound from '../../assets/audio/button-sound.mp3';
+import classnames from 'classnames';
 
 
 class Play extends Component {
@@ -238,7 +239,7 @@ class Play extends Component {
         }
     };
     startTimer = () => {
-        const countDownTime = Date.now() + 300000;
+        const countDownTime = Date.now() + 30000;
         this.interval =setInterval(() => {
                 const now = new Date();
                 const distance = countDownTime - now;
@@ -263,7 +264,7 @@ class Play extends Component {
                 else{
                     this.setState({
                         time: {
-                            minutes,seconds
+                            minutes,seconds, distance
                         }
                     })
                 }
@@ -318,8 +319,12 @@ class Play extends Component {
                         <p><span onClick={this.handleHints} className="mdi mdi-lightbulb-on mdi-24px lifeline-icon"></span> {this.state.hints} <span  className="lifeline"></span></p>
                     </div>
                         <div className="timer-container">
-                            <p><span className="left">{this.state.currentQuestionIndex + 1} Of {this.state.questions.length}</span>
-                         <span className="right">{time.minutes}:{time.seconds}
+                            <p>
+                                <span className="left">  {this.state.currentQuestionIndex + 1} Of {this.state.questions.length}</span>
+                         <span className={classnames('right valid', {
+                             'warning': time.distance <= 12000,
+                             'invalid': time.distance <= 9000
+                         })}>{time.minutes}:{time.seconds}
                         <span className="mdi mdi-clock-outline mdi-24px clock"> </span></span>
                             </p>
                         </div>
