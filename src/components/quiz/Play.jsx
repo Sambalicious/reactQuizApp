@@ -35,12 +35,18 @@ class Play extends Component {
      };
 
      interval = null;
+     correctSound  = React.createRef();
+     wrongSound = React.createRef();
+     buttonSound = React.createRef();
     
 
      componentDidMount() {
          const { questions, currentQuestion, nextQuestion, previousQuestion} =this.state
          this.displayQuestions(questions, currentQuestion, previousQuestion, nextQuestion );
          this.startTimer();
+     }
+     componentWillUnmount(){
+         clearInterval(this.interval)
      }
      
 
@@ -63,14 +69,16 @@ class Play extends Component {
      handleOptionClick = (e) =>{
           if( e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
             setTimeout(() => {
-                document.getElementById('correct-sound').play();
+                
+                this.correctSound.current.play();
             },500);
            
             this.handleCorrectAnswer();
           }
           else{
               setTimeout(() => {
-                document.getElementById('wrong-sound').play();
+                
+                this.wrongSound.current.play();
               }, 500);
             
               this.handleWrongAnswer();
@@ -102,6 +110,11 @@ class Play extends Component {
          }
      }
 
+     handleQuitBtn = () => {
+         alert('Are you sure you want to end the test now?');
+         this.props.history.push('/play/summary');
+     }
+
      handleButtonClick = (e) => {
          this.playButtonSound();
 
@@ -112,6 +125,9 @@ class Play extends Component {
                 case 'nextBtn': 
                 this.handleNextButton();
                 break;
+
+                case 'quitBtn': 
+                this.handleQuitBtn();
                 
                 default:
                     break;
@@ -119,7 +135,8 @@ class Play extends Component {
      };
      
      playButtonSound =()=>{
-         document.getElementById('button-sound').play()
+         
+         this.buttonSound.current.play()
      }
 
      handleCorrectAnswer = () => {
@@ -133,8 +150,19 @@ class Play extends Component {
              correctAnswer: prevState.correctAnswer + 1,
              currentQuestionIndex: prevState.currentQuestionIndex + 1,
              numberofAnsweredQuestions: prevState.numberofAnsweredQuestions + 1
-         }),  ()=> {this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.previousQuestion, this.state.nextQuestion)})
-     }
+         }),  ()=> {
+             if (this.state.nextQuestion === undefined){
+                 this.testEnded();
+             }
+             else{
+                this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.previousQuestion, this.state.nextQuestion);
+            }
+        })
+            
+            }
+
+           
+     
      handleWrongAnswer = () => {
          navigator.vibrate(1000);
         M.toast({
@@ -146,8 +174,15 @@ class Play extends Component {
             wrongAnswers: prevState.wrongAnswers + 1,
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
             numberofAnsweredQuestions: prevState.numberofAnsweredQuestions + 1
-        }), ()=> {this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.previousQuestion, this.state.nextQuestion)})
-    };
+        }), ()=> {
+            if (this.state.nextQuestion === undefined){
+            this.testEnded()
+        }else{
+            this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.previousQuestion, this.state.nextQuestion);
+        }
+     })
+    ;
+};
 
     showOptions=() => {
         const options = document.querySelectorAll('.option');
@@ -238,8 +273,11 @@ class Play extends Component {
 
         }
     };
+
+    ////setting the timer
     startTimer = () => {
-        const countDownTime = Date.now() + 30000;
+        ////adjust the length of the exam here 
+        const countDownTime = Date.now() + 70000;
         this.interval =setInterval(() => {
                 const now = new Date();
                 const distance = countDownTime - now;
@@ -257,8 +295,7 @@ class Play extends Component {
 
 
                     }, ()=> {
-                        alert('Time is up');
-                        this.props.history.push('/');
+                        this.testEnded();
                     });
                 }
                 else{
@@ -273,7 +310,8 @@ class Play extends Component {
     };
 
     handledDisabledBtn= () => {
-        if(this.state.previousQuestion === undefined || this.state.currentQuestion === 0){
+        //disabliing previous button
+        if(this.state.previousQuestion === undefined || this.state.currentQuestionIndex === 0){
 
             this.setState({
                 previousBtnDisabled: true
@@ -283,7 +321,7 @@ class Play extends Component {
                 previousBtnDisabled: false
             });
         }
-
+        //disabling next button
         if(this.state.nextQuestion === undefined || this.state.currentQuestion + 1  ===this.state.questions.length ){
 
             this.setState({
@@ -294,6 +332,26 @@ class Play extends Component {
                 nextBtnDisabled: false
             });
         }
+    }
+
+    testEnded = () => {
+       alert('Test ended!');
+
+       const {state} = this
+       const scores = {
+           score: state.score,
+           numberOfQuestions: state.numberOfQuestions,
+           numberofAnsweredQuestions: state.numberofAnsweredQuestions,
+           correctAnswer: state.correctAnswer,
+           wrongAnswers: state.wrongAnswers,
+           fiftyFiftyUsed: 2 - state.fiftyFifty,
+           hintused: 5 - state.hints
+
+       };
+       console.log(scores);
+       setTimeout(() => {
+           this.props.history.push('/play/summary');
+       }, 1000);
     }
 
     render() { 
@@ -307,9 +365,9 @@ class Play extends Component {
                 </Helmet>
 
                 <Fragment>
-                    <audio id="correct-sound" src={correctSound} />
-                    <audio id="wrong-sound" src={wrongSound} />
-                    <audio id="button-sound" src={buttonSound} />
+                    <audio ref={this.correctSound} src={correctSound} />
+                    <audio ref={this.wrongSound} src={wrongSound} />
+                    <audio ref={this.buttonSound} src={buttonSound} />
 
                 </Fragment>
 
@@ -340,9 +398,16 @@ class Play extends Component {
                         </div>
 
                         <div className="btn-container">
-                            <button id="previousBtn" onClick={this.handleButtonClick}>Previous</button>
-                            <button id="nextBtn"  onClick={this.handleButtonClick}>Next</button>
-                            <button id='quitBtn' onClick={this.handleButtonClick}> Quit</button>
+                            <button 
+                            className={classnames('', {'disabled': this.state.previousBtnDisabled
+                            })} id="previousBtn" onClick={this.handleButtonClick}>Previous</button>
+                            <button
+                                className={classnames('', {'disabled': this.state.nextBtnDisabled
+                            })}
+                            id="nextBtn"  onClick={this.handleButtonClick}>Next</button>
+                            <button
+                                
+                            id='quitBtn' onClick={this.handleButtonClick}> Quit</button>
                         </div>
                 </div>
             </Fragment>
