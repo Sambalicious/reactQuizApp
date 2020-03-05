@@ -129,7 +129,7 @@ class Play extends Component {
                 case 'quitBtn': 
                 this.handleQuitBtn();
                 
-                default:
+                default: 
                     break;
             }
      };
@@ -350,7 +350,7 @@ class Play extends Component {
        };
        console.log(scores);
        setTimeout(() => {
-           this.props.history.push('/play/summary');
+           this.props.history.push('/play/summary', scores);
        }, 1000);
     }
 
