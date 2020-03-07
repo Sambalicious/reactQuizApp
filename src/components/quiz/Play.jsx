@@ -17,10 +17,10 @@ class Play extends Component {
         previousQuestion: {},
         answer:'',
         numberOfQuestions: 0,
-        numberofAnsweredQuestions: 0,
+        numberOfAnsweredQuestions: 0,
         currentQuestionIndex:0,
         score:0,
-        correctAnswer:0,
+        correctAnswers:0,
         wrongAnswers:0,
         hints:5,
         fiftyFifty: 2,
@@ -59,7 +59,9 @@ class Play extends Component {
             previousQuestion = questions[currentQuestionIndex -1];
             const answer = currentQuestion.answer;
             this.setState({
-                currentQuestion,nextQuestion,previousQuestion,answer, previousRandomNumbers :[]
+                currentQuestion,
+                numberOfQuestions:questions.length,
+                nextQuestion,previousQuestion,answer, previousRandomNumbers :[]
             }, () => {
                 this.showOptions();
                 this.handledDisabledBtn();
@@ -147,9 +149,9 @@ class Play extends Component {
          });
          this.setState(prevState => ({
              score: prevState.score + 1,
-             correctAnswer: prevState.correctAnswer + 1,
+             correctAnswers: prevState.correctAnswers + 1,
              currentQuestionIndex: prevState.currentQuestionIndex + 1,
-             numberofAnsweredQuestions: prevState.numberofAnsweredQuestions + 1
+             numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
          }),  ()=> {
              if (this.state.nextQuestion === undefined){
                  this.testEnded();
@@ -173,7 +175,7 @@ class Play extends Component {
         this.setState(prevState => ({
             wrongAnswers: prevState.wrongAnswers + 1,
             currentQuestionIndex: prevState.currentQuestionIndex + 1,
-            numberofAnsweredQuestions: prevState.numberofAnsweredQuestions + 1
+            numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
         }), ()=> {
             if (this.state.nextQuestion === undefined){
             this.testEnded()
@@ -341,14 +343,14 @@ class Play extends Component {
        const scores = {
            score: state.score,
            numberOfQuestions: state.numberOfQuestions,
-           numberofAnsweredQuestions: state.numberofAnsweredQuestions,
-           correctAnswer: state.correctAnswer,
+           numberOfAnsweredQuestions: (state.correctAnswers + state.wrongAnswers ),
+           correctAnswers: state.correctAnswers,
            wrongAnswers: state.wrongAnswers,
            fiftyFiftyUsed: 2 - state.fiftyFifty,
-           hintused: 5 - state.hints
+           hintUsed: 5 - state.hints
 
        };
-       console.log(scores);
+       
        setTimeout(() => {
            this.props.history.push('/play/summary', scores);
        }, 1000);

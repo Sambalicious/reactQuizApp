@@ -9,10 +9,10 @@ class QuizSummary extends Component {
 
             this.state = { 
                 score: 0,
-                numberOfQuestion:0, 
-                numberOfAnsweredQuestion: 0,
+                numberOfQuestions:0, 
+                numberOfAnsweredQuestions: 0,
                 correctAnswers: 0,
-                WrongAnswers: 0,
+                wrongAnswers: 0,
                 hintUsed:0,
                 fiftyFiftyUsed:0
              
@@ -21,16 +21,16 @@ class QuizSummary extends Component {
     }
 
     componentDidMount() {
-
+            console.log(this.props)
         const { state } = this.props.location;
         if (state){
 
             this.setState({
-                score: (state.score / state.numberOfQuestion)* 100,
-                numberOfQuestion: state.numberOfQuestion, 
+                score: (state.score / state.numberOfQuestions) * 100,
+                numberOfQuestions: state.numberOfQuestions, 
                 numberOfAnsweredQuestion: state.numberOfAnsweredQuestion,
                 correctAnswers: state.correctAnswers,
-                WrongAnswers: state.WrongAnswers,
+                wrongAnswers: state.wrongAnswers,
                 hintUsed:state.hintUsed,
                 fiftyFiftyUsed:state.fiftyFiftyUsed
             });
@@ -68,20 +68,21 @@ class QuizSummary extends Component {
                     <div className="container">
                         <h4> {remark} </h4>
                         <h2> Your score : {this.state.score.toFixed()}&#37; </h2>
+
                         <span className="left stat">Total number of questions:</span>
-                        <span className="right"> { this.state.numberOfQuestion} </span><br/>
+                        <span className="right"> { this.state.numberOfQuestions} </span><br/>
 
 
                         <span className="left stat">Total number of Answered questions:</span>
-                        <span className="right"> { this.state.numberOfAnsweredQuestion} </span><br/>
+                        <span className="right"> { this.state.numberOfAnsweredQuestions} </span><br/>
 
 
                         <span className="left stat">Total number of correct answers:</span>
                         <span className="right"> { this.state.correctAnswers} </span><br/>
 
 
-                        <span className="left stat">Total number of wrong answwers:</span>
-                        <span className="right"> { this.state.WrongAnswers} </span><br/>
+                        <span className="left stat">Total number of wrong answers:</span>
+                        <span className="right"> { this.state.wrongAnswers} </span><br/>
 
                         <span className="left stat">Total number of Fifty-Fifty lifeline used:</span>
                         <span className="right"> { this.state.fiftyFiftyUsed} </span><br/>
@@ -92,12 +93,18 @@ class QuizSummary extends Component {
 
 
                     </div>
+                   < br/>
 
                     <section>
                         <ul>
                             <li>
                                 <Link to="/">Back to Homepage</Link>
-                            </li>
+                                </li><br/>
+                                <li>
+                                <Link to="/play/quiz">Go all over again</Link>
+                                </li>
+                                
+                            
                             </ul>
                     </section>
                 </Fragment>
@@ -105,7 +112,22 @@ class QuizSummary extends Component {
         }
 
         else{
-            stat = (<h1>stat is unavailable. Go back and take a test.</h1>)
+            stat = (
+            <section>
+            <h1 className="no-stats">No available test statistics</h1>
+            
+            <ul>
+                <li className='left'>
+                    <Link to="/">Back to Homepage</Link>
+                </li>
+                <li className="right">
+                    <Link to="/play/quiz">Take a quiz</Link>
+                </li>
+                    
+                
+                </ul>
+        </section>
+        )
         }
         return (  
             <Fragment>
