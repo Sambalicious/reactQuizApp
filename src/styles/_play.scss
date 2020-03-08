@@ -115,3 +115,21 @@ body{
 .clock{
     color: $green;
 }
+
+@media screen and (max-width: 768px){
+      .option{padding: $xtra-small;
+        margin: $small-medium auto;
+        width: 85%;
+
+}
+
+.btn-container button{
+    margin-right: $normal ;
+    padding: $xtra-small;
+
+    
+
+
+}
+
+}  

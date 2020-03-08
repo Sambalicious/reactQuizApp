@@ -46,7 +46,7 @@ class QuizSummary extends Component {
         const score = this.state.score;
         const state = this.props.location.state;
 
-        console.log(this.state.score);
+        
         let stat, remark;
             if (score <= 30 ){
                 remark ='Nice try! However, you are capable of more.';
@@ -105,7 +105,7 @@ class QuizSummary extends Component {
                         <ul>
                             <li className="left">
                                 <Link to="/">Back to Homepage</Link>
-                                </li><br/>
+                                </li>
                                 <li className="right">
                                 <Link to="/play/instructions">Retake Test</Link>
                                 </li>
