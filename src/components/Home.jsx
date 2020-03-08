@@ -13,7 +13,7 @@ const Home = () => {
                 <div style={{textAlign:"center"}}>
                     <span className="cube mdi mdi-cube-outline mdi-48px"></span>
                 </div>
-                <h1>Quiz App for Fellows</h1>
+                <h1>Computer Based Test -Demo.</h1>
                 <div className="playBtn">
                     <ul>
                         <li><Link  className="play-button" to="/play/instructions">Play</Link></li>

@@ -280,7 +280,7 @@ class Play extends Component {
     ////setting the timer
     startTimer = () => {
         ////adjust the length of the exam here 
-        const countDownTime = Date.now() + 70000;
+        const countDownTime = Date.now() + 300000;
         this.interval =setInterval(() => {
                 const now = new Date();
                 const distance = countDownTime - now;
