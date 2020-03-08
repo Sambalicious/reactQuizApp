@@ -69,7 +69,7 @@ class Play extends Component {
         }
      }
      handleOptionClick = (e) =>{
-          if( e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
+          if( e.target.innerHTML.trim().toLowerCase() === this.state.answer.trim().toLowerCase()) {
             setTimeout(() => {
                 
                 this.correctSound.current.play();
@@ -113,6 +113,7 @@ class Play extends Component {
      }
 
      handleQuitBtn = () => {
+         this.playButtonSound();
          alert('Are you sure you want to end the test now?');
          this.props.history.push('/play/summary');
      }
@@ -243,7 +244,7 @@ class Play extends Component {
 
                 const randomNumber = Math.round(Math.random() * 3);
                 if(randomNumber !== indexOfAnswer){
-                    if(randomNumbers.length < 2 &&!randomNumbers.includes(randomNumber)
+                    if(randomNumbers.length < 2 && !randomNumbers.includes(randomNumber)
                      && !randomNumbers.includes(indexOfAnswer)){;
                      randomNumbers.push(randomNumber);
                      count++;
