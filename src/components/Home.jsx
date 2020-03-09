@@ -16,13 +16,16 @@ const Home = () => {
                 <h1>Computer Based Test -Demo.</h1>
                 <div className="playBtn">
                     <ul>
-                        <li><Link  className="play-button" to="/play/instructions">Play Demo </Link></li>
+                        <li><Link  className="play-button" to="/play/instructions">Play Demo</Link></li>
                     </ul>
                 </div>
-                <div className="auth-container">
+
+                { /*
+                 <div className="auth-container">
                     <Link className="auth-buttons" id="login-btn" to="/login">Login</Link>
                     <Link to="/register" id="signup-btn" className="auth-buttons">Register</Link>
                 </div>
+                */}
             </section>
             
         </div>
