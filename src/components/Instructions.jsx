@@ -55,10 +55,11 @@ const Instructions = () => {
                 </ul>
                 <div className="edited">
                     <span className="left"><Link to="/">No, take me back</Link></span>
-                    <span className="right"><Link to="/play/quiz">Proceed to Questions</Link></span>
-                    </div>
+                    <span className="right"><Link to="/play/quiz">Proceed</Link></span>
+                </div>
+                <br/><br/>
 
-                    <span className="mdi-copywrite">developed by Samuel Ayegbusi</span>
+                    <span className="mdi mdi-copyright">Samuel Ayegbusi</span>
         </div>
         </Fragment>
      );

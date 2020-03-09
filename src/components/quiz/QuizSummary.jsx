@@ -99,7 +99,7 @@ class QuizSummary extends Component {
 
 
                     </div>
-                   < br/>
+                   < br/> <br/>
 
                     <section>
                         <ul>
