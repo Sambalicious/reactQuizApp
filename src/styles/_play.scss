@@ -6,6 +6,7 @@ body{
     background-color: $off-white;
     border-left: 5px solid $blue;
     width: 80%;
+    
     margin: $large auto 0 auto;
     padding: $small-medium $medium;
 
@@ -128,8 +129,14 @@ body{
     padding: $xtra-small !important;
     margin: 5px !important;
 }
+
+
 .questions .option {
     padding: $xtra-small !important;
 
 }  
+.questions{
+    width: 85%;
+    height: 90%;
+}
 }  
