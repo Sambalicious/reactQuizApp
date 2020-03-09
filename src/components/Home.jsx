@@ -16,7 +16,7 @@ const Home = () => {
                 <h1>Computer Based Test -Demo.</h1>
                 <div className="playBtn">
                     <ul>
-                        <li><Link  className="play-button" to="/play/instructions">Play</Link></li>
+                        <li><Link  className="play-button" to="/play/instructions">Play Demo </Link></li>
                     </ul>
                 </div>
                 <div className="auth-container">

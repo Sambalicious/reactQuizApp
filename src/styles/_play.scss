@@ -117,19 +117,18 @@ body{
 }
 
 @media screen and (max-width: 768px){
-      .option{padding: $xtra-small;
-        margin: $small-medium auto;
+      .option{padding: $xtra-small !important;
+        margin: $small-medium auto !important;
         width: 85%;
 
 }
 
-.btn-container button{
-    margin-right: $normal ;
-    padding: $xtra-small;
-
+.questions .btn-container button{
     
-
-
+    padding: $xtra-small !important;
 }
+.questions .option {
+    padding: $xtra-small !important;
 
+}  
 }  
