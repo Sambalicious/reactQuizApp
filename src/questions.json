@@ -9,21 +9,21 @@
     },
 
     {
-        "question": "Who wrote Julius Caesar, Macbeth and Hamlet?",
-        "optionA": "Wole Soyinka",
-        "optionB": "William Shakespeare",
-        "optionC": "Ngozi Chimamanda Adichie",
-        "optionD": "Dan Brown",
-        "answer": "William Shakespeare"
+        "question": " When an hausa man married a Yoruba  woman, we  call  it ______________marriage",
+        "optionA": "Intra-ethnic",
+        "optionB": "Ethnic",          thic                          
+        "optionC": "Inter-ethnic",
+        "optionD": "Wedding",
+        "answer": "Inter-ethnic"
     },
 
     {
-        "question": "What did the crocodile swallow in Peter Pan?",
-        "optionA": "A Book",
-        "optionB": "A Computer",
-        "optionC": "A pair of shoes",
-        "optionD": "Alarm Clock",
-        "answer": "Alarm Clock"
+        "question": "_____________ colonized Nigeria",                        
+        "optionA": " Italy",
+        "optionB": "Ghana",
+        "optionC": " British",
+        "optionD": "America",
+        "answer": "British"
     },
 
     {
@@ -36,12 +36,12 @@
     },
 
     {
-        "question": "Who lived at 221B, Baker Street, London?",
-        "optionA": "Tony Stark",
-        "optionB": "Morgan Freeman",
-        "optionC": "Sherlock Holmes",
-        "optionD": "Samuel L. Jackson",
-        "answer": "Sherlock Holmes"
+        "question": "Nigeria got her  independence on __________________",              
+        "optionA": "October  1st 1960",
+        "optionB": " October 1st 1860",
+        "optionC": "October 1st 1760",
+        "optionD": "October 1st 1660",
+        "answer": "October  1st 1960"
     },
 
     {
@@ -72,21 +72,21 @@
     },
 
     {
-        "question": "What takes place in Hong Kong's Happy Valley?",
-        "optionA": "Chicken Wrestling",
-        "optionB": "Horse racing",
-        "optionC": "Street Racing",
-        "optionD": "Arm Wrestling",
-        "answer": "Horse racing"
+        "question": "Christianity introduced ______________",                                    
+        "optionA": "Monogamy",
+        "optionB": "Polygamy",
+        "optionC": " Large",
+        "optionD": "Extended",
+        "answer": "Monogamy"
     },
 
     {
-        "question": "Who painted the Mona Lisa?",
-        "optionA": "Alexander Graham Bell",
-        "optionB": "Sir Isaac Newton",
-        "optionC": "Leonardo Da Vinci",
-        "optionD": "Albert Einstein",
-        "answer": "Leonardo Da Vinci"
+        "question": ".Inter-ethnic marriage is between couples from different __________ group.",                 
+        "optionA": "Religion",
+        "optionB": "Family",
+        "optionC": "School",
+        "optionD": "Ethnic",
+        "answer": "Ethnic"
     },
 
     {
@@ -117,12 +117,12 @@
     },
 
     {
-        "question": "Who invented the electric light bulb?",
-        "optionA": "Tom Cruise",
-        "optionB": "Barack Obama",
-        "optionC": "Wole Soyinka",
-        "optionD": "Thomas Edison",
-        "answer": "Thomas Edison"
+        "question": "Marriage takes place in the following place except _______",               
+        "optionA": " Hospital",
+        "optionB": "Church",
+        "optionC": "Mosque",
+        "optionD": "Traditional",
+        "answer": " Hospital"
     },
 
     {
@@ -132,5 +132,89 @@
         "optionC": "In the beginning",
         "optionD": "At that time",
         "answer": "In the beginning"
-    }
+    },
+
+    {
+        "question": " The award of honour is  given by the  ___________of a country.",
+        "optionA": "Governor",
+        "optionB": "Minister  ",                      
+        "optionC": "President",
+        "optionD": "Senator",
+        "answer": "President"
+    },
+
+    {
+        "question": "Tolerance  is  an  act  of   _______________.",
+        "optionA": "Disagreement",
+        "optionB": "Fighthing",
+        "optionC": "Lying ",
+        "optionD": "Enduring",
+        "answer": "Enduring"
+    },
+    {
+        "question": " ___________security management is the means by which a person ensure adequate security of himself",
+        "optionA": "Individual",
+        "optionB": "Social ",                                  
+        "optionC": "Relationship",
+        "optionD": "Personal",
+        "answer": "Personal"
+    }, 
+
+    {
+        "question": "Any action that is morally wrong is known as_______________",
+        "optionA": "Punishment",
+        "optionB": "Crime",
+        "optionC": "Penalty",                                                   
+        "optionD": "Suicide",
+        "answer": "Crime"
+    },
+    {
+        "question": "A pain that somebody is made to suffer because he/she committed a crime is known as ____________",
+        "optionA": "Attitude",                                                            
+        "optionB": "Punishment",
+        "optionC": "Control",
+        "optionD": "Insult",
+        "answer": "Punishment"
+    },
+    {
+        "question": "Fake drugs includes drug that are not ____________",
+        "optionA": "Genuine",
+        "optionB": "Grinded",
+        "optionC": "Coloured",
+        "optionD": "Imported",                                            
+        "answer": "Genuine"
+    },
+    {
+        "question": " _______________is the act of taking or stealing somebody’s property",
+        "optionA": "Forgery",
+        "optionB": "Rape",
+        "optionC": "Theft",
+        "optionD": "Fraud",                                                           
+        "answer": "Theft"
+    },
+
+    {
+        "question": "  The highest national honour award in Nigeria is ______________",
+        "optionA": "CFR",
+        "optionB": "CON",
+        "optionC": "CFU",
+        "optionD": "GCON",                                             
+        "answer": "GCON"
+    },
+    {
+        "question": "Union between a man and a woman to ______ together as husband and wife is called marriage.",
+        "optionA": "Life",
+        "optionB": "Die",
+        "optionC": "Live",                                        
+        "optionD": "Leave",
+        "answer": "Live"
+    },
+    {
+        "question": "An award given to somebody  who has contributed to national development is known as__________",
+        "optionA": "National Award",
+        "optionB": "Country Award",                                                    
+        "optionC": " State Award",
+        "optionD": "Presidental Award",
+        "answer": "National Award"
+    },
 ]
