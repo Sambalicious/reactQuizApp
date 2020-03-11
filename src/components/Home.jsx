@@ -18,6 +18,9 @@ const Home = () => {
                     <ul>
                         <li><Link  className="play-button" to="/play/instructions">Play Demo</Link></li>
                     </ul>
+                    <br/><br/><br/>
+
+                    <span className=" mdi mdi-copyright center">Developed by  Samuel Ayegbusi</span>
                 </div>
 
                 { /*

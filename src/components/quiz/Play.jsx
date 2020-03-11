@@ -55,7 +55,7 @@ class Play extends Component {
         if(!isEmpty(this.state.questions)){
             questions= this.state.questions;
             currentQuestion = questions[currentQuestionIndex];
-            nextQuestion =questions[currentQuestionIndex + 1];
+            nextQuestion = questions[currentQuestionIndex + 1];
             previousQuestion = questions[currentQuestionIndex -1];
             const answer = currentQuestion.answer;
             this.setState({
@@ -67,7 +67,7 @@ class Play extends Component {
                 this.handledDisabledBtn();
             });
         }
-     }
+     };
      handleOptionClick = (e) =>{
           if( e.target.innerHTML.trim().toLowerCase() === this.state.answer.trim().toLowerCase()) {
             setTimeout(() => {
@@ -131,8 +131,8 @@ class Play extends Component {
 
                 case 'quitBtn': 
                 this.handleQuitBtn();
-                
-                default: 
+                break;
+                default: this.handleQuitBtn();
                     break;
             }
      };
@@ -179,7 +179,7 @@ class Play extends Component {
             numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
         }), ()=> {
             if (this.state.nextQuestion === undefined){
-            this.testEnded()
+            this.testEnded();
         }else{
             this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.previousQuestion, this.state.nextQuestion);
         }
@@ -187,7 +187,7 @@ class Play extends Component {
     ;
 };
 
-    showOptions=() => {
+    showOptions= () => {
         const options = document.querySelectorAll('.option');
         options.forEach(option => {
             option.style.visibility = "visible";
@@ -202,7 +202,7 @@ class Play extends Component {
         let indexOfAnswer;
         options.forEach((option, index) => {
             if (option.innerHTML.toLowerCase() === this.state.answer.toLowerCase()){
-                indexOfAnswer = index
+                indexOfAnswer = index;
             }
         });
 
@@ -280,8 +280,8 @@ class Play extends Component {
     ////setting the timer
     startTimer = () => {
         ////adjust the length of the exam here 
-        const countDownTime = Date.now() + 300000;
-        this.interval =setInterval(() => {
+        const countDownTime = Date.now() + 180000;
+        this.interval = setInterval(() => {
                 const now = new Date();
                 const distance = countDownTime - now;
 
@@ -412,6 +412,8 @@ class Play extends Component {
                                 
                             id='quitBtn' onClick={this.handleButtonClick}> Quit</button>
                         </div>
+
+                        <span className="mdi mdi-copyright">Samuel Ayegbusi</span>
                 </div>
             </Fragment>
          );

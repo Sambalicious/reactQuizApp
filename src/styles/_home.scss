@@ -89,6 +89,11 @@
 
     }
 }
+.center{
+    color: $off-white;
+    display: flex;
+    justify-content: center;
+}
 
 @media screen and (max-width: 767px){
     #home section{

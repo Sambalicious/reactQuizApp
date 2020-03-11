@@ -49,7 +49,7 @@ class QuizSummary extends Component {
         
         let stat, remark;
             if (score <= 30 ){
-                remark ='Nice try! However, you are capable of more.';
+                remark ='Nice try! seek more knowledge and try again.';
             }
             else if (score > 30 && score <= 50){
                 remark = 'Good try! You can do more.';
