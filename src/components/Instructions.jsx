@@ -18,8 +18,8 @@ const Instructions = () => {
                <h1>Instructions For the quiz</h1> 
                <p>Ensure that you go over the instructions on this page</p>
                 <ul className="browser-default" id="main-list">
-                    <li> The quiz will play out for exactly 15minutes and ends as soon as your time lapses</li>
-                    <li>In Each quiz, there are 15 questions generated from the server.</li>
+                    <li> The quiz will play out for exactly 5 minutes and ends as soon as your time lapses</li>
+                    <li>In Each quiz, there are 25 questions generated from the server.</li>
                     <li>Every question has 4 options to choose from.
                         <br/><br/>
                         <img  src={options} alt="options"/>

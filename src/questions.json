@@ -11,7 +11,7 @@
     {
         "question": " When an hausa man married a Yoruba  woman, we  call  it ______________marriage",
         "optionA": "Intra-ethnic",
-        "optionB": "Ethnic",          thic                          
+        "optionB": "Ethnic",                          
         "optionC": "Inter-ethnic",
         "optionD": "Wedding",
         "answer": "Inter-ethnic"
@@ -216,5 +216,5 @@
         "optionC": " State Award",
         "optionD": "Presidental Award",
         "answer": "National Award"
-    },
+    }
 ]
