@@ -9,7 +9,7 @@
     },
 
     {
-        "question": " When an hausa man married a Yoruba  woman, we  call  it ______________marriage",
+        "question": "When an hausa man married a Yoruba woman, we call it ______________marriage",
         "optionA": "Intra-ethnic",
         "optionB": "Ethnic",                          
         "optionC": "Inter-ethnic",
@@ -36,9 +36,9 @@
     },
 
     {
-        "question": "Nigeria got her  independence on __________________",              
+        "question": "Nigeria got her independence on __________________",              
         "optionA": "October  1st 1960",
-        "optionB": " October 1st 1860",
+        "optionB": "October 1st 1860",
         "optionC": "October 1st 1760",
         "optionD": "October 1st 1660",
         "answer": "October  1st 1960"
@@ -81,7 +81,7 @@
     },
 
     {
-        "question": ".Inter-ethnic marriage is between couples from different __________ group.",                 
+        "question": "Inter-ethnic marriage is between couples from different __________ group.",                 
         "optionA": "Religion",
         "optionB": "Family",
         "optionC": "School",
@@ -135,7 +135,7 @@
     },
 
     {
-        "question": " The award of honour is  given by the  ___________of a country.",
+        "question": " The award of honour is given by the  ___________of a country.",
         "optionA": "Governor",
         "optionB": "Minister  ",                      
         "optionC": "President",
@@ -144,15 +144,15 @@
     },
 
     {
-        "question": "Tolerance  is  an  act  of   _______________.",
+        "question": "Tolerance  is  an  act  of _______________.",
         "optionA": "Disagreement",
         "optionB": "Fighthing",
         "optionC": "Lying ",
-        "optionD": "Enduring",
-        "answer": "Enduring"
+        "optionD": "Endurance",
+        "answer": "Endurance"
     },
     {
-        "question": " ___________security management is the means by which a person ensure adequate security of himself",
+        "question": "___________security management is the means by which a person ensure adequate security of himself",
         "optionA": "Individual",
         "optionB": "Social ",                                  
         "optionC": "Relationship",
@@ -185,7 +185,7 @@
         "answer": "Genuine"
     },
     {
-        "question": " _______________is the act of taking or stealing somebody’s property",
+        "question": "_______________is the act of taking or stealing somebody’s property",
         "optionA": "Forgery",
         "optionB": "Rape",
         "optionC": "Theft",
@@ -194,7 +194,7 @@
     },
 
     {
-        "question": "  The highest national honour award in Nigeria is ______________",
+        "question": "The highest national honour award in Nigeria is ______________",
         "optionA": "CFR",
         "optionB": "CON",
         "optionC": "CFU",
