@@ -67,7 +67,8 @@ class QuizSummary extends Component {
             
             stat = (
                 <Fragment>
-                    <div>
+                    <div className="content">
+                        <div>
                         <span className="mdi mdi-check-circle-outline success-icon"></span>
                     </div>
                     <h1 style={{textAlign:"center"}}>Test has ended</h1>
@@ -90,7 +91,7 @@ class QuizSummary extends Component {
                         <span className="left stat">Total number of wrong answers:</span>
                         <span className="right"> { this.state.wrongAnswers} </span><br/>
 
-                        <span className="left stat">Total number of Fifty-Fifty lifeline used:</span>
+                        <span className="left stat">Total number of 50/50 lifeline used:</span>
                         <span className="right"> { this.state.fiftyFiftyUsed} out of {this.state.fiftyFifty} </span><br/>
 
 
@@ -99,6 +100,7 @@ class QuizSummary extends Component {
 
 
                     </div>
+                   
                    < br/> <br/>
 
                     <section>
@@ -113,13 +115,14 @@ class QuizSummary extends Component {
                             
                             </ul>
                     </section>
+                    </div>
                 </Fragment>
             )
         }
 
         else{
             stat = (
-            <section>
+            <section className="content">
             <h1 className="no-stats">No available test statistics</h1>
             
             <ul>

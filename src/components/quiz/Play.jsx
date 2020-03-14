@@ -366,14 +366,14 @@ class Play extends Component {
                 <Helmet>
                     <title> Quiz Page</title>
                 </Helmet>
-
+                <div className="content">
                 <Fragment>
                     <audio ref={this.correctSound} src={correctSound} />
                     <audio ref={this.wrongSound} src={wrongSound} />
                     <audio ref={this.buttonSound} src={buttonSound} />
 
                 </Fragment>
-
+                
                 <div className="questions">
                     <div className="lifeline-container">
                         <p><span onClick={this.handleFifty} className="mdi mdi-set-center mdi-24px lifeline-icon"></span>{this.state.fiftyFifty} <span  className="lifeline"></span></p>
@@ -414,6 +414,7 @@ class Play extends Component {
                         </div>
 
                         <span className="mdi mdi-copyright">Samuel Ayegbusi</span>
+                </div>
                 </div>
             </Fragment>
          );
