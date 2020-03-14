@@ -6,7 +6,7 @@ class QuizSummary extends Component {
 
     constructor(props){
         super(props)
-
+            
             this.state = { 
                 score: 0,
                 numberOfQuestions:0, 

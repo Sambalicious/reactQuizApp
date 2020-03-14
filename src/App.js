@@ -1,19 +1,21 @@
-import React from 'react';
+import React, {lazy, Suspense } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Home from './components/Home';
-import Instructions from './components/Instructions';
 import Play from './components/quiz/Play';
-import QuizSummary from './components/quiz/QuizSummary'
-
+const QuizSummary = lazy(() => import('./components/quiz/QuizSummary'));
+const Home = lazy(()=> import('./components/Home'));
+const Instructions = lazy(()=> import('./components/Instructions'))
 const App = () => {
   return (
+    
     <div>
         <Router>
           <Switch>
+            <Suspense fallback={<div>Loading...</div>}>
           <Route path="/" exact component={Home} />
           <Route path="/play/instructions" exact component={Instructions}/>
-          <Route path="/play/quiz" exact component={Play} /> 
+          <Route path="/play/quiz" exact component={Play} />           
           <Route path="/play/summary" exact component={QuizSummary} />
+          </Suspense>
           </Switch>
         </Router>
     </div>

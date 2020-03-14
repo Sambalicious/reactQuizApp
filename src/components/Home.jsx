@@ -20,7 +20,7 @@ const Home = () => {
                     </ul>
                     <br/><br/><br/>
 
-                    <span className=" mdi mdi-copyright center">Developed by  Samuel Ayegbusi</span>
+                    <span className=" mdi mdi-copyright center">Developed by Samuel Ayegbusi</span>
                 </div>
 
                 { /*

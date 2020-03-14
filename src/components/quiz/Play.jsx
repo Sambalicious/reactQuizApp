@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment} from 'react';
 import {Helmet} from 'react-helmet';
 import M from 'materialize-css'
 import questions from '../../questions.json';
