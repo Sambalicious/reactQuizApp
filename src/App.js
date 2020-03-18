@@ -13,10 +13,12 @@ const App = () => {
     <div>
         <Router>
           <Switch>
-          <Suspense fallback={<div className='spinner'> <h3>Loading... </h3></div>}>
+          <Suspense fallback={<div className='spinner'> <h3>Loading...</h3></div>}>
           <Route path="/" exact component={Home} />
           <Route path="/play/instructions" exact component={Instructions}/>
-          <Route path="/play/quiz" exact component={Play} />           
+          <Route path="/play/quiz" exact component={Play} />  
+          <Suspense fallback={<div className="spinner"><h3>Loading Test Results...</h3></div>}>
+          </Suspense>         
           <Route path="/play/summary" exact component={QuizSummary} />
           </Suspense>
           </Switch>

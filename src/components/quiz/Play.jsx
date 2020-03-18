@@ -383,8 +383,8 @@ class Play extends Component {
                             <p>
                                 <span className="left">  {this.state.currentQuestionIndex + 1} Of {this.state.questions.length}</span>
                          <span className={classnames('right valid', {
-                             'warning': time.distance <= 12000,
-                             'invalid': time.distance <= 9000
+                             'warning': time.distance <= 60000,
+                             'invalid': time.distance <= 10000
                          })}>{time.minutes}:{time.seconds}
                         <span className="mdi mdi-clock-outline mdi-24px clock"> </span></span>
                             </p>
